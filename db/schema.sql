@@ -1,21 +1,22 @@
-DROP DATABASE IF EXISTS cats_db;
+DROP DATABASE IF EXISTS burgers_db;
 
-CREATE DATABASE cats_db;
+CREATE DATABASE burgers_db;
 
-USE cats_db;
+USE burgers_db;
 
-CREATE TABLE cats (
+CREATE TABLE burgers (
   id INT NOT NULL AUTO_INCREMENT,
-  cat_name VARCHAR(255) NOT NULL,
-  adopted BOOLEAN DEFAULT false NOT NULL,
+  burger_name VARCHAR(255) NOT NULL,
+  devoured BOOLEAN DEFAULT false NOT NULL,
   PRIMARY KEY (id)
 );
 
-INSERT INTO cats
-  (cat_name)
+INSERT INTO burgers
+  (burger_name)
 VALUES
-  ('Marcy'),
-  ('Mr. flip'),
-  ('Kite');
+  ('Chicken Burger'),
+  ('Bacon Cheese Burger'),
+  ('Double Stacker Burger'),
+  ('Veggie Burger');
 
-SELECT * FROM cats;
+SELECT * FROM burgers;

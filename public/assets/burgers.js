@@ -1,30 +1,30 @@
 // listen for form submission
-$('#cat-form').on('submit', function(event) {
+$('#burger-form').on('submit', function(event) {
     event.preventDefault();
   
     // collect cat data as an object
-    const catData = {
-      cat_name: $('[name=cat-name]')
+    const burgerData = {
+      burger_name: $('[name = Burger-name]')
         .val()
         .trim()
     };
   
     $.ajax({
-      url: '/api/cats',
+      url: '/api/burgers',
       method: 'POST',
-      data: catData
+      data: burgerData
     }).then(response => {
       console.log(response);
       location.reload();
     });
   });
   
-  $('.adoptCat').on('click', function() {
+  $('.devourBurger').on('click', function() {
     // get id of cat we are adopting
-    const catId = $(this).attr('data-catid');
+    const catId = $(this).attr('data-burgerid');
   
     $.ajax({
-      url: `/api/cats/${catId}`,
+      url: `/api/burgers/${burgerId}`,
       method: 'PUT',
       data: {
         adopted: 1
@@ -35,16 +35,16 @@ $('#cat-form').on('submit', function(event) {
     });
   });
   
-  $('.deleteCat').on('click', function() {
-    // get cat id
-    const catId = $(this).attr('data-catid');
+  // $('.deleteCat').on('click', function() {
+  //   // get cat id
+  //   const catId = $(this).attr('data-catid');
   
-    // delete cat
-    $.ajax({
-      url: `/api/cats/${catId}`,
-      method: 'DELETE'
-    }).then(response => {
-      console.log(response);
-      location.reload();
-    });
-  });
+  //   // delete cat
+  //   $.ajax({
+  //     url: `/api/cats/${catId}`,
+  //     method: 'DELETE'
+  //   }).then(response => {
+  //     console.log(response);
+  //     location.reload();
+  //   });
+  // });

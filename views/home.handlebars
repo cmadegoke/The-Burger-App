@@ -1,35 +1,35 @@
 <div class="row">
   {{!-- create two columns --}}
   <div class="col-12 col-md-3">
-    <h2>Create a Cat</h2>
-    <form id="cat-form">
+    <h2>Submit a Burger</h2>
+    <form id="burger-form">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Cat name" name="cat-name" />
+        <input type="text" class="form-control" placeholder="Burger name" name="Burger-name" />
       </div>
-      <button class="btn btn-block btn-outline-success">Submit New 😺</button>
+      <button class="btn btn-block btn-outline-success">Submit New Burger</button>
     </form>
   </div>
 
   <div class="col-12 col-md-9">
     <div class="card mb-4">
       <h3 class="card-header">
-        Cats Not Adopted
+        Burger Not Devoured
       </h3>
       <ul class="list-group-flush">
         {{!-- loop through cats from handlebars and print out cats that are NOT adopted --}}
-        {{#each cats}}
-        {{#unless this.adopted}}
+        {{#each burgers}}
+        {{#unless this.devoured}}
         <li class="list-group-item d-flex justify-content-between align-items-center align-center">
-          <h4>{{this.cat_name}}</h4>
+          <h4>{{this.burger_name}}</h4>
           <div>
             {{!-- adopt a cat --}}
-            <button class="btn btn-info adoptCat" data-catid="{{this.id}}">
-              Adopt Me
+            <button class="btn btn-info devourBurger" data-burgerid="{{this.id}}">
+             Devour it
             </button>
             {{!-- delete a cat --}}
-            <button class="btn btn-danger deleteCat" data-catid="{{this.id}}">
+            {{!-- <button class="btn btn-danger deleteCat" data-catid="{{this.id}}">
               Delete Me
-            </button>
+            </button> --}}
           </div>
         </li>
         {{/unless}}
@@ -39,19 +39,19 @@
 
     <div class="card mb-4">
       <h3 class="card-header">
-        Cats Adopted
+        Burgers Devoured
       </h3>
       <ul class="list-group-flush">
         {{!-- loop through cats from handlebars and print out cats that are  adopted --}}
-        {{#each cats}}
+        {{#each burgers}}
         {{#if this.adopted}}
         <li class="list-group-item d-flex justify-content-between align-items-center align-center">
-          <h4>{{this.cat_name}}</h4>
+          <h4>{{this.burger_name}}</h4>
           <div>
-            {{!-- delete a cat --}}
+            {{!-- delete a cat
             <button class="btn btn-danger deleteCat" data-catid="{{this.id}}">
               Delete Me
-            </button>
+            </button> --}}
           </div>
         </li>
         {{/if}}

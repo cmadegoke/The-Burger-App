@@ -1,54 +1,54 @@
 const router = require('express').Router();
 
-const { getCats, createCat, updateCat, deleteCat } = require('../../controllers/burgers_controller');
+const { getBurgers, createBurger, updateBurger } = require('../../controllers/burgers_controller');
 
 // create full CRUD routes at `/cats` (it will eventually become '/api/cats')
-router.get('/cats', (req, res) => {
+router.get('/burgers', (req, res) => {
   getCats()
-    .then(catdata => {
-      res.status(200).json(catdata);
+    .then(burgerdata => {
+      res.status(200).json(burgerdata);
     })
     .catch(err => {
       res.status(500).json(err);
     });
 });
 
-router.post('/cats', (req, res) => {
+router.post('/burgers', (req, res) => {
   // req.body => { cat_name: 'Derek'}
   createCat(req.body)
-    .then(catdata => {
-      res.status(200).json(catdata);
+    .then(burgerdata => {
+      res.status(200).json(burgerdata);
     })
     .catch(err => {
       res.status(500).json(err);
     });
 });
 
-router.put('/cats/:id', (req, res) => {
+router.put('/burgers/:id', (req, res) => {
   updateCat(req.body, req.params.id)
-    .then(catdata => {
-      if (catdata.code === 404) {
-        return res.status(404).json(catdata);
+    .then(burgerdata => {
+      if (burgerdata.code === 404) {
+        return res.status(404).json(burgerdata);
       }
-      res.status(200).json(catdata);
+      res.status(200).json(burgerdata);
     })
     .catch(err => {
       res.status(500).json(err);
     });
 });
 
-router.delete('/cats/:id', (req, res) => {
-  deleteCat(req.params.id)
-    .then(catdata => {
-      if (catdata.code === 404) {
-        return res.status(404).json(catdata);
-      }
+// router.delete('/cats/:id', (req, res) => {
+//   deleteCat(req.params.id)
+//     .then(catdata => {
+//       if (catdata.code === 404) {
+//         return res.status(404).json(catdata);
+//       }
 
-      res.status(200).json(catdata);
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
-});
+//       res.status(200).json(catdata);
+//     })
+//     .catch(err => {
+//       res.status(500).json(err);
+//     });
+// });
 
 module.exports = router;
