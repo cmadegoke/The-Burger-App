@@ -4,7 +4,7 @@ const { getBurgers, createBurger, updateBurger } = require('../../controllers/bu
 
 // create full CRUD routes at `/cats` (it will eventually become '/api/cats')
 router.get('/burgers', (req, res) => {
-  getCats()
+  getBurgers()
     .then(burgerdata => {
       res.status(200).json(burgerdata);
     })
@@ -15,7 +15,7 @@ router.get('/burgers', (req, res) => {
 
 router.post('/burgers', (req, res) => {
   // req.body => { cat_name: 'Derek'}
-  createCat(req.body)
+  createBurger(req.body)
     .then(burgerdata => {
       res.status(200).json(burgerdata);
     })
@@ -25,7 +25,7 @@ router.post('/burgers', (req, res) => {
 });
 
 router.put('/burgers/:id', (req, res) => {
-  updateCat(req.body, req.params.id)
+  updateBurger(req.body, req.params.id)
     .then(burgerdata => {
       if (burgerdata.code === 404) {
         return res.status(404).json(burgerdata);
