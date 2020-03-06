@@ -25,7 +25,9 @@ router.post('/burgers', (req, res) => {
 });
 
 router.put('/burgers/:id', (req, res) => {
+  
   updateBurger(req.body, req.params.id)
+  
     .then(burgerdata => {
       if (burgerdata.code === 404) {
         return res.status(404).json(burgerdata);
